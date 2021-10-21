@@ -1,0 +1,10 @@
+.ArticleCard {
+    width: 100px;
+    height: auto;
+    background-color: blue;
+}
+
+.ArticleName {
+    font-size: larger;
+    color: aliceblue;
+}
