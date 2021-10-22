@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('./db');
 const app = express();
 const port = 9090;
@@ -6,6 +7,8 @@ const port = 9090;
 //support url and json encoded bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(cors());
 
 app.get('/articles/', (req, res) => {
     res.setHeader('content-type', 'application/json');

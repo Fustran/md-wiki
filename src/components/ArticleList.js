@@ -8,14 +8,14 @@ const ArticleList = () => {
     const [articleNames, setArticleNames] = useState([]);
 
     useEffect(() => {
-        getArticleList().then(names => setArticleNames(names));
-    });
-
-    
+        getArticleList().then(names => {
+            setArticleNames(names);
+        });
+    }, []);
 
     return (
         <div className={styles.CardContainer}>
-            {articleNames.map(name => <ArticleCard name={name}/>) }
+            {articleNames.map(name => <ArticleCard key={name} name={name}/>) }
         </div>
     );
 }
