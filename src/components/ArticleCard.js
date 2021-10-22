@@ -3,10 +3,9 @@ import styles from './ArticleCard.module.css';
 
 const ArticleCard = (props) => {
     return (
-        <div className={styles.ArticleCard}>
-            {/* <div className={styles.ArticleName}>{props.name}</div> */}
-            <Link to={"/articles/" + props.name}>{props.name}</Link>
-        </div>
+        <Link className={styles.ArticleCard} to={"/articles/" + props.name}>
+            <div className={styles.ArticleName}>{props.name}</div>
+        </Link>
     );
 }
 

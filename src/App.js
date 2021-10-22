@@ -8,9 +8,8 @@ import ReadPage from './components/ReadPage';
 import EditPage from './components/EditPage';
 
 const App = () => {
-
   return (
-    <div className = {styles.App}> 
+    <div className={styles.App}> 
       <Router>
         <Route exact path="/" component={ArticleList}/>
         <Route exact path ="/articles/:name" component={ReadPage} />

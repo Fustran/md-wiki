@@ -1,11 +1,17 @@
 .ArticleCard {
-    width: 100px;
-    height: auto;
-    background-color: blue;
+    height: 5%;
+    margin-bottom: 1%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
 }
 
 .ArticleName {
     font-size: larger;
-    color: aliceblue;
-
+    color: black;
+    height: auto;
+    text-align: center;
 }
