@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getArticle } from "../services/api";
 import Header from "./Header";
 import LinkButton from "./LinkButton";
@@ -33,7 +33,6 @@ const ReadPage = () => {
 
     return (
         <div className={styles.ReadPage}>
-            {/* <div>read page for {name}</div> */}
             <Header text={`Reading "${name}"`} />
             <div className={styles.mdSpacer}>{ArticleText()}</div>
             <LinkButton to={"/articles/edit/" + name} text="edit" />
