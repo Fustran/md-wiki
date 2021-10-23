@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getArticleList } from '../services/api';
+import Header from "./Header";
 import ArticleCard from './ArticleCard';
 import styles from './ArticleList.module.css';
 
@@ -26,11 +27,12 @@ const ArticleList = () => {
         }
     }
 
-    return (
+    return (<>
+        <Header text={`md-wiki`} />
         <div className={styles.CardContainer}>
             {generateList()}
         </div>
-    );
+    </>);
 }
 
 export default ArticleList;

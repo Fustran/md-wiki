@@ -17,7 +17,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "client:test": "react-scripts test",
+    "start": "concurrently --kill-others \"npm run backend:start\" \"npm run client:start\"",
+    "client:test": "react-scripts test --transformIgnorePatterns",
     "client:start": "react-scripts start",
     "client:build": "react-scripts build",
     "client:eject": "react-scripts eject",
@@ -45,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "jest": "^26.6.0",
     "nodemon": "^2.0.13"
   }

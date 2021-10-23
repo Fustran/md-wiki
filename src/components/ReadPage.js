@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getArticle } from "../services/api";
+import Header from "./Header";
+import LinkButton from "./LinkButton";
 import MarkdownDisplay from "./MarkdownDisplay";
 import styles from './ReadPage.module.css';
 
@@ -31,10 +33,11 @@ const ReadPage = () => {
 
     return (
         <div className={styles.ReadPage}>
-            <div>read page for {name}</div>
+            {/* <div>read page for {name}</div> */}
+            <Header text={`Reading "${name}"`} />
             <div className={styles.mdSpacer}>{ArticleText()}</div>
-            <Link to={"/articles/edit/" + name}>edit</Link>
-            <Link to="/">back to menu</Link>
+            <LinkButton to={"/articles/edit/" + name} text="edit" />
+            <LinkButton to="/" text="back to menu" />
         </div>
     )
 }

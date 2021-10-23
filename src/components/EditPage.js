@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import LinkButton from "./LinkButton.js";
 import { getArticle, setArticleData } from "../services/api";
-import styles from './EditPage.module.css';
+import Header from "./Header";
 import MarkdownDisplay from "./MarkdownDisplay";
+import styles from './EditPage.module.css';
 
 const EditPage = () => {
     const { name } = useParams();
@@ -36,19 +38,22 @@ const EditPage = () => {
     }
 
     return (<>
-        <div>editing "{name}"</div>
+        <Header text={`Editing "${name}"`} />
         <div className={styles.EditPanel}>
+
             <div className={styles.flexContainer}>
                 <div className={styles.subtitle}>plaintext</div>
                 <textarea className={styles.textArea} type="text" onChange={onInputChange} id="input" disabled></textarea> 
             </div>
+
             <div className={styles.flexContainer}>
                 <div className={styles.subtitle}>markdown</div>
                 <MarkdownDisplay className={styles.markdownArea} text={inputText} />
             </div>
+
         </div>
-        <Link to="/">back to menu</Link>
-        <Link to={"/articles/" + name}>cancel</Link>
+        <LinkButton to="/" text="back to menu" />
+        <LinkButton to={"/articles/" + name} text="cancel" />
         <button onClick={saveArticle}>Save</button>
     </>)
 }
