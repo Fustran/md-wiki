@@ -9,18 +9,16 @@ import styles from './EditPage.module.css';
 
 const EditPage = () => {
     const { name } = useParams();
-    const [inputText, setInputText] = useState();
+    const [inputText, setInputText] = useState({loading: true, data: undefined});
 
     useEffect(() => {
         let mounted = true;
         //try to load the article text when we first open the edit page
-        if (inputText === undefined) {
+        if (inputText.data === undefined) {
             getArticle(name).then(article => {
                 if (mounted) {
-                    if (article !== undefined) { 
-                        setInputText(article); 
-                        document.getElementById('input').value = article;
-                    }
+                    setInputText({loading: false, data: article}); 
+                    if (article !== undefined) {document.getElementById('input').value = article};
                     document.getElementById('input').disabled = false;
                 }
             });
@@ -30,25 +28,34 @@ const EditPage = () => {
     }, [inputText, name]);
 
     const onInputChange = (e) => {
-        setInputText(e.target.value);
+        setInputText({loading: false, data: e.target.value});
     }
 
     const saveArticle = () => {
-        setArticleData(name, inputText);
+        setArticleData(name, inputText.data);
     }
 
     return (<>
         <Header text={`Editing "${name}"`} />
+        {inputText.loading === true ? <div>Loading...</div> : <></>}
         <div className={styles.EditPanel}>
 
             <div className={styles.flexContainer}>
                 <div className={styles.subtitle}>plaintext</div>
-                <textarea className={styles.textArea} type="text" onChange={onInputChange} id="input" disabled></textarea> 
+                <textarea 
+                    className={styles.textArea} 
+                    type="text" 
+                    onChange={onInputChange} 
+                    value={inputText.data}
+                    id="input" 
+                    data-testid='plainInput' 
+                    disabled
+                ></textarea> 
             </div>
 
             <div className={styles.flexContainer}>
                 <div className={styles.subtitle}>markdown</div>
-                <MarkdownDisplay className={styles.markdownArea} text={inputText} />
+                <MarkdownDisplay className={styles.markdownArea} text={inputText.data} />
             </div>
 
         </div>

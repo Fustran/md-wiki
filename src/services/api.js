@@ -15,7 +15,6 @@ export const getArticle = (name) => {
 export const setArticleData = (name, data) => {
     fetch(`http://localhost:9090/articles/${name}`, {
         method: "PUT",
-        // headers: { 'Content-Type': 'text/html' },
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: data
     });

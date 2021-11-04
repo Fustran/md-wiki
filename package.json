@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "concurrently --kill-others \"npm run backend:start\" \"npm run client:start\"",
-    "client:test": "react-scripts test --transformIgnorePatterns",
+    "client:test": "react-scripts test --transformIgnorePatterns --verbose false",
     "client:start": "react-scripts start",
     "client:build": "react-scripts build",
     "client:eject": "react-scripts eject",

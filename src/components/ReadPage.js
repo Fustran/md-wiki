@@ -27,7 +27,6 @@ const ReadPage = () => {
         } else {
             //markdown component
             return <MarkdownDisplay text={articleText.data} />
-            // return <div>{articleText.data}</div>;
         }
     }
 
@@ -36,7 +35,7 @@ const ReadPage = () => {
             <Header text={`Reading "${name}"`} />
             <div className={styles.mdSpacer}>{ArticleText()}</div>
             <LinkButton to={"/articles/edit/" + name} text="edit" />
-            <LinkButton to="/" text="back to menu" />
+            <LinkButton to="/" id='menuButton' text="back to menu" />
         </div>
     )
 }
