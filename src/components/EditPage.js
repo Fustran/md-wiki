@@ -48,14 +48,14 @@ const EditPage = () => {
                     onChange={onInputChange} 
                     value={inputText.data}
                     id="input" 
-                    data-testid='plainInput' 
+                    data-testid='plainField' 
                     disabled
                 ></textarea> 
             </div>
 
             <div className={styles.flexContainer}>
                 <div className={styles.subtitle}>markdown</div>
-                <MarkdownDisplay className={styles.markdownArea} text={inputText.data} />
+                <MarkdownDisplay className={styles.markdownArea} text={inputText.data} data-testid='markdownField' />
             </div>
 
         </div>

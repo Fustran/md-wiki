@@ -4,7 +4,6 @@ import styles from './MarkdownDisplay.module.css';
 const ReactDOM = require('react-dom');
 
 const MarkdownDisplay = (props) => {
-
     useEffect(() => {
         ReactDOM.render(
             <ReactMarkdown>{props.text}</ReactMarkdown>,
@@ -13,7 +12,7 @@ const MarkdownDisplay = (props) => {
     }, [props.text]);
 
     return (
-        <div className={styles.mdContainer} id='mdContainer'></div>
+        <div className={styles.mdContainer} id='mdContainer' data-testid={props['data-testid']}></div>
     );
 }
 
