@@ -24,8 +24,7 @@
     "client:eject": "react-scripts eject",
     "backend:start": "node ./backend/index.js",
     "backend:watch": "nodemon ./backend/index.js",
-    "backend:test": "jest ./backend",
-    "backend:test:watch": "jest --watch ./backend"
+    "backend:test": "jest --watch ./backend"
   },
   "eslintConfig": {
     "extends": [

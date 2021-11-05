@@ -7,15 +7,14 @@ COPY . /app
 RUN npm install
 RUN npm run client:build
 
-RUN apk update
-RUN apk add nginx
+RUN apk update \
+&& apk add --no-cache openrc nginx rsync \
+&& mkdir -p /run/openrc \
+&& touch /run/openrc/softlevel 
 
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY /app/build /usr/share/nginx/html
 #copy over our nginx config and built website
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+RUN cp -r ./build/. /var/www/html/
 
-# RUN npm run backend:start 
-
-# CMD ["nginx", "-g", "daemon off;"]
-# CMD [ "npm", "run", "backend:start"]
+ENTRYPOINT ["sh", "-c", "rc-status; rc-service nginx start; npm run backend:start"]
 
