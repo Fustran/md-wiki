@@ -19,12 +19,11 @@
   "scripts": {
     "start": "concurrently --kill-others \"npm run backend:start\" \"npm run client:start\"",
     "client:test": "react-scripts test --transformIgnorePatterns --verbose false",
-    "client:start": "react-scripts start",
+    "client:start": "PORT=8080 react-scripts start",
     "client:build": "react-scripts build",
     "client:eject": "react-scripts eject",
     "backend:start": "node ./backend/index.js",
-    "backend:watch": "nodemon ./backend/index.js",
-    "backend:test": "jest --watch ./backend"
+    "backend:test": "jest ./backend"
   },
   "eslintConfig": {
     "extends": [

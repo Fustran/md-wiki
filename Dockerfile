@@ -1,5 +1,5 @@
 #start with building our frontend in a node image
-FROM node:14-alpine
+FROM node:16-alpine3.12
 
 WORKDIR /app
 COPY . /app
@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run client:build
 
 RUN apk update \
-&& apk add --no-cache openrc nginx rsync \
+&& apk add --no-cache openrc nginx \
 && mkdir -p /run/openrc \
 && touch /run/openrc/softlevel 
 

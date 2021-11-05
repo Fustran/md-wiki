@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:16.13.0
+    steps:
+      - checkout
+      - run:
+          name: INSTALLING DEPENDENCIES
+          command: npm install
+      - run:
+          name: RUNNING FRONTEND TESTS
+          command: "npm run client:test"
+      - run:
+          name: RUNNING BACKEND TESTS
+          command: "npm run backend:test"
+      - run:
+          name: BUILDING FRONTEND
+          command: "npm run client:build"
