@@ -1,12 +1,12 @@
 ## md-wiki
 Simple website that allows the reading, writing, and storing of articles.
 
-### Running
+### Running for local development
 
-`npm i`  
+`npm install`  
 `npm run start` to run both the backend server and frontend.  
 
-Website will be viewable on [http://localhost:3000](http://localhost:3000).  
+Website will be viewable on [http://localhost:8080](http://localhost:8080).  
 
 ### Tests
 
